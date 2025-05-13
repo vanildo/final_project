@@ -12,11 +12,11 @@ def emotion_detector(text_to_analyse: str) -> str:
     res = json.loads(response.text)
 
     emotions = {
-      'anger': res[0]['emotion']['anger'],
-      'disgust': res[0]['emotion']['disgust'],
-      'fear': res[0]['emotion']['fear'],
-      'joy': res[0]['emotion']['joy'],
-      'sadness': res[0]['emotion']['sadness'],
+      'anger': res['emotionPredictions'][0]['emotion']['anger'],
+      'disgust': res['emotionPredictions'][0]['emotion']['disgust'],
+      'fear': res['emotionPredictions'][0]['emotion']['fear'],
+      'joy': res['emotionPredictions'][0]['emotion']['joy'],
+      'sadness': res['emotionPredictions'][0]['emotion']['sadness'],
     }
 
     formatted_res = {
