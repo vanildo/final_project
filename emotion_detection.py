@@ -8,10 +8,11 @@ def emotion_detector(text_to_analyse: str) -> str:
   response = requests.post(URL, json=input, headers=HEADERS)
   
   if response.status_code == 200:
-    res = response.json()
-    # emotion = res['emotionPredictions'][0]['emotion']
-    # dominant_emotion = max(emotion, key=emotion.get)
-    print(res)
+    res = response.text
+    return res
+  else:
+    return ''
+
 
 if __name__ == '__main__':
   print(emotion_detector('I love this new technology.'))
