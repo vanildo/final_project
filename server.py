@@ -16,7 +16,7 @@ def detect_emotion():
     
     result = emotion_detector(text_to_analyze)
     
-    if result:
+    if result and result['dominant_emotion'] is not None:
         # Format the response for display
         response = "For the given text, the system response is "
         for emotion, score in result.items():
@@ -24,7 +24,7 @@ def detect_emotion():
         response += f". The dominant emotion is {result['dominant_emotion']}"
         return response
     else:
-        return "Error processing the text. Please try again."
+        return "Invalid text! Please try again!"
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
